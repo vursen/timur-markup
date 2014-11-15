@@ -157,6 +157,34 @@ a {
 .container:after {
   clear: both;
 }
+.btn {
+  outline: none;
+  border: none;
+  text-align: center;
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn_submit {
+  padding: 7px 18px;
+  background: #ff6000;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 12px;
+}
+.btn_submit:hover {
+  background: #f75d00;
+}
+.form-input {
+  border: none;
+  outline: none;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-family: inherit;
+  border-radius: 12px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+}
 .heading_section {
   font-size: 35px;
   font-weight: bold;
@@ -167,10 +195,16 @@ a {
 }
 .link {
   display: inline-block;
+  text-decoration: none;
+}
+.link_default {
+  color: #d5530a;
+}
+.link_default:hover {
+  text-decoration: underline;
 }
 .link_more {
   text-transform: uppercase;
-  text-decoration: none;
   color: inherit;
   font-size: 12px;
   font-weight: bold;
@@ -213,16 +247,22 @@ a {
   text-transform: uppercase;
 }
 .b-gallery {
-  margin: 0 -20px;
+  margin: 0 -10px;
+}
+.b-gallery__pagination {
+  margin: 20px 0 30px;
 }
 .b-gallery__item {
-  margin: 0 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px 20px;
   width: 140px;
   font-size: 12px;
+  line-height: 1.6;
 }
 .b-gallery__item__image {
   display: block;
-  margin: 0 auto 14px;
+  margin: 0 auto 8px;
   border-radius: 8px;
 }
 .b-gallery__item__date {
@@ -295,6 +335,9 @@ a {
   position: absolute;
   left: 348px;
   bottom: 98px;
+}
+.b-last-videos {
+  margin: 20px 0;
 }
 .b-last-videos__slider:before,
 .b-last-videos__slider:after {
@@ -388,6 +431,13 @@ a {
 }
 .b-page__top {
   margin: 0 0 35px;
+}
+.b-page__top__heading {
+  display: inline-block;
+}
+.b-page__top__search {
+  margin: 3px 0 0;
+  float: right;
 }
 .b-header + .b-page {
   position: relative;
@@ -497,6 +547,9 @@ a {
 .b-projects__item__desc + .b-projects__item__desc {
   margin-top: 15px;
 }
+.b-search__submit {
+  margin-left: 5px;
+}
 .b-social__icon {
   display: inline-block;
   vertical-align: middle;
@@ -594,7 +647,7 @@ a {
   margin: 0 0 20px;
 }
 .b-welcome {
-  height: 600px;
+  height: 580px;
 }
 .b-welcome .container {
   position: relative;
