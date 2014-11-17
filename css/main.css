@@ -254,28 +254,6 @@ a {
   padding: 15px 0;
   text-transform: uppercase;
 }
-.b-gallery {
-  margin: 0 -10px;
-}
-.b-gallery__pagination {
-  margin: 20px 0 30px;
-}
-.b-gallery__item {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 8px 20px;
-  width: 140px;
-  font-size: 12px;
-  line-height: 1.6;
-}
-.b-gallery__item__image {
-  display: block;
-  margin: 0 auto 8px;
-  border-radius: 8px;
-}
-.b-gallery__item__date {
-  color: #959595;
-}
 .b-header {
   background: url("../img/b-header.png") no-repeat top center;
   position: relative;
@@ -467,22 +445,44 @@ a {
   border: 1px solid #dee0e2;
   text-decoration: none;
 }
-.b-pagination__item.active,
+.b-pagination__item._active,
 .b-pagination__item:hover {
   color: #fff;
 }
-.b-pagination__item.active a,
+.b-pagination__item._active a,
 .b-pagination__item:hover a {
   border: none;
   padding: 6px 9px;
   background: #ff6000;
 }
-.b-pagination__item.active a {
+.b-pagination__item._active a {
   padding-bottom: 3px;
   border-bottom: 3px solid #c24900;
 }
 .b-pagination__item + .b-pagination__item {
   margin-left: 5px;
+}
+.b-photo-list {
+  margin: 0 -10px;
+}
+.b-photo-list__pagination {
+  margin: 20px 0 30px;
+}
+.b-photo-list__item {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px 20px;
+  width: 140px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.b-photo-list__item__image {
+  display: block;
+  margin: 0 auto 8px;
+  border-radius: 8px;
+}
+.b-photo-list__item__date {
+  color: #959595;
 }
 .b-preview {
   position: relative;
@@ -529,30 +529,30 @@ a {
 .b-preview__actions__src {
   background-position: -41px 10px;
 }
-.b-projects {
+.b-project-list {
   margin: 0 -20px;
 }
-.b-projects__item {
+.b-project-list__item {
   float: left;
   width: 50%;
   margin: 0 0 25px;
   padding: 0 20px;
   font-size: 12px;
 }
-.b-projects__item__main {
+.b-project-list__item__main {
   overflow: hidden;
   padding: 35px 0 0;
 }
-.b-projects__item__image {
+.b-project-list__item__image {
   float: left;
   margin: 0 15px 0 0;
   border: 10px solid #fff;
   box-shadow: 0 0 4px rgba(0,0,0,0.3);
 }
-.b-projects__item__date {
+.b-project-list__item__date {
   color: #959595;
 }
-.b-projects__item__desc + .b-projects__item__desc {
+.b-project-list__item__desc + .b-project-list__item__desc {
   margin-top: 15px;
 }
 .b-search__submit {
@@ -596,13 +596,13 @@ a {
 .b-social__icon._twitter._gray {
   background-position: -124px -36px;
 }
-.b-videos {
+.b-video-list {
   margin: 0 -10px;
 }
-.b-videos__pagination {
+.b-video-list__pagination {
   margin: 20px 0 30px;
 }
-.b-videos__item {
+.b-video-list__item {
   display: inline-block;
   vertical-align: top;
   margin: 0 8px 20px;
@@ -651,6 +651,10 @@ a {
   float: left;
   width: 140px;
 }
+.b-welcome-gallery__more {
+  float: right;
+  margin: 35px 0 0;
+}
 .b-welcome-gallery .bx-wrapper {
   margin: 0 !important;
   position: relative;
@@ -689,6 +693,13 @@ a {
 }
 .b-welcome-sub__heading {
   margin: 0 0 20px;
+}
+.b-welcome-sub__more {
+  margin: 20px 0 0;
+}
+.b-welcome-sub__more:before {
+  background-color: #fff;
+  background-position: -38px -31px;
 }
 .b-welcome {
   height: 580px;

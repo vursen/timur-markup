@@ -12,7 +12,7 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
-  <body>
+  <body ng-app="app">
     <!-- === Header ============================================================= -->
     <header class="b-header">
       <div class="container">
@@ -60,11 +60,11 @@
                 <li class="b-welcome-gallery__item">
                   <div data-img-preview="http://placehold.it/140x140" data-img="http://placehold.it/400x400" class="b-preview"></div>
                 </li>
-              </ul>
+              </ul><a href="#" class="link link_more b-welcome-gallery__more">Все фото</a>
             </div>
             <div class="b-welcome-sub">
               <h2 class="b-welcome-sub__heading heading_section">Всегда в курсе </h2>
-              <p class="b-welcome-sub__text text">Михаил Галустян родился в городе Сочи 25 октября 1979 года, правда, при рождении родители дали ему имя Ншан… </p>
+              <p class="b-welcome-sub__text text">Михаил Галустян родился в городе Сочи 25 октября 1979 года, правда, при рождении родители дали ему имя Ншан… </p><a href="#" class="link link_more b-welcome-sub__more">Все фото</a>
             </div>
           </div>
           <div class="b-welcome-feed b-welcome__right">
@@ -114,8 +114,8 @@
       </footer>
     </div>
     <!-- === Scripts ============================================================ -->
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/jquery.bxslider.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/app.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

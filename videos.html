@@ -12,7 +12,7 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
-  <body>
+  <body ng-app="app">
     <!-- === Header ============================================================= -->
     <header class="b-header">
       <div class="container">
@@ -43,26 +43,26 @@
       </div>
     </header>
     <!-- === Content ============================================================ -->
-    <div class="b-page b-page_default">
+    <div ng-controller="VideoListCtrl" class="b-page b-page_default">
       <div class="container">
         <div class="b-page__top">
           <h2 class="heading_section">Видео</h2>
         </div>
-        <div class="b-videos">
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <div class="b-videos__item"><img src="http://placehold.it/300x200"/></div>
-          <ul class="b-pagination b-videos__pagination">
-            <li class="b-pagination__item active"><a href="#">1</a></li>
+        <div class="b-video-list">
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <div class="b-video-list__item"><img src="http://placehold.it/300x200"/></div>
+          <ul class="b-pagination b-video-list__pagination">
+            <li class="b-pagination__item _active"><a href="#">1</a></li>
             <li class="b-pagination__item"><a href="#">2</a></li>
             <li class="b-pagination__item"><a href="#">3</a></li>
             <li class="b-pagination__item"><a href="#">4</a></li>
@@ -87,8 +87,8 @@
       </footer>
     </div>
     <!-- === Scripts ============================================================ -->
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/jquery.bxslider.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/app.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

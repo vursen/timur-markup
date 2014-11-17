@@ -12,7 +12,7 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
-  <body>
+  <body ng-app="app">
     <!-- === Header ============================================================= -->
     <header class="b-header">
       <div class="container">
@@ -43,129 +43,25 @@
       </div>
     </header>
     <!-- === Content ============================================================ -->
-    <div class="b-page b-page_default">
+    <div ng-controller="ProjectListCtrl" class="b-page b-page_default">
       <div class="container">
         <div class="b-page__top">
           <h2 class="heading_section b-page__top__heading"><strong>Мои</strong> проекты</h2>
           <div class="b-search b-page__top__search">
-            <input type="text" placeholder="Поиск" class="b-search__query form-input"/>
+            <input type="text" placeholder="Поиск" ng-model="q" class="b-search__query form-input"/>
             <button type="button" class="b-search__submit btn btn_submit">Искать</button>
           </div>
         </div>
-        <div class="b-projects">
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
-            </div>
-          </div>
-          <div class="b-projects__item"><img src="http://placehold.it/150x180" class="b-projects__item__image"/>
-            <div class="b-projects__item__main">
-              <p class="b-projects__item__desc b-projects__item__date">6 Июня 2014, 18:18</p>
-              <p class="b-projects__item__desc">
-                 
-                «Дружба народов» 
-                Приключения автомеханика Тимофея Степановича Окопова на средиземноморское побережье Испании.
-              </p>
-              <p class="b-projects__item__desc">Роль: Янычар</p>
+        <div class="b-project-list">
+          <div ng-repeat="project in projects | filter:q" class="b-project-list__item"><img ng-src="{{project.image}}" class="b-project-list__item__image"/>
+            <div class="b-project-list__item__main">
+              <p class="b-project-list__item__desc b-project-list__item__date">{{project.date}}</p>
+              <p ng-repeat="desc in project.desc" class="b-project-list__item__desc">{{desc}}</p>
             </div>
           </div>
         </div>
-        <ul class="b-pagination">
-          <li class="b-pagination__item active"><a href="#">1</a></li>
+        <ul class="b-pagination b-project-list__pagination">
+          <li class="b-pagination__item _active"><a href="#">1</a></li>
           <li class="b-pagination__item"><a href="#">2</a></li>
           <li class="b-pagination__item"><a href="#">3</a></li>
           <li class="b-pagination__item"><a href="#">4</a></li>
@@ -189,8 +85,8 @@
       </footer>
     </div>
     <!-- === Scripts ============================================================ -->
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/jquery.bxslider.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/app.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
