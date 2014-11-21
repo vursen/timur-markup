@@ -12,18 +12,18 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
-  <body ng-app="app">
+  <body ng-app="app" ng-controller="MainCtrl">
     <!-- === Header ============================================================= -->
     <header class="b-header">
       <div class="container">
         <div class="b-header__top">
           <div class="b-header__logo"><a href="#"><img src="img/b-header__logo.png"/></a></div>
           <ul class="b-header__menu b-menu b-menu_light">
-            <li class="b-menu__item _active"><a href="./">Биография</a></li>
-            <li class="b-menu__item"><a href="gallery.html">Фото</a></li>
-            <li class="b-menu__item"><a href="videos.html">Видео</a></li>
-            <li class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
-            <li class="b-menu__item"><a href="contacts.html">Контакты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/&quot;}" class="b-menu__item"><a href="./">Биография</a></li>
+            <li ng-class="{_active: currentPage == &quot;/gallery.html&quot;}" class="b-menu__item"><a href="gallery.html">Фото</a></li>
+            <li ng-class="{_active: currentPage == &quot;/videos.html&quot;}" class="b-menu__item"><a href="videos.html">Видео</a></li>
+            <li ng-class="{_active: currentPage == &quot;/projects.html&quot;}" class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/contacts.html&quot;}" class="b-menu__item"><a href="contacts.html">Контакты</a></li>
           </ul>
         </div>
         <div class="b-header__person"></div>
@@ -49,35 +49,27 @@
           <h2 class="heading_section b-page__top__heading"><strong>Мои</strong> проекты</h2>
           <div class="b-search b-page__top__search">
             <input type="text" placeholder="Поиск" ng-model="q" class="b-search__query form-input"/>
-            <button type="button" class="b-search__submit btn btn_submit">Искать</button>
+            <!--button(type='button').b-search__submit.btn.btn_submit Искать-->
           </div>
         </div>
         <div class="b-project-list">
-          <div ng-repeat="project in projects | filter:q" class="b-project-list__item"><img ng-src="{{project.image}}" class="b-project-list__item__image"/>
+          <div dir-paginate="project in projects | filter:q | itemsPerPage: 3" class="b-project-list__item"><img ng-src="{{project.image}}" class="b-project-list__item__image"/>
             <div class="b-project-list__item__main">
               <p class="b-project-list__item__desc b-project-list__item__date">{{project.date}}</p>
               <p ng-repeat="desc in project.desc" class="b-project-list__item__desc">{{desc}}</p>
             </div>
           </div>
         </div>
-        <ul class="b-pagination b-project-list__pagination">
-          <li class="b-pagination__item _active"><a href="#">1</a></li>
-          <li class="b-pagination__item"><a href="#">2</a></li>
-          <li class="b-pagination__item"><a href="#">3</a></li>
-          <li class="b-pagination__item"><a href="#">4</a></li>
-          <li class="b-pagination__item"><a href="#">5</a></li>
-          <li class="b-pagination__item"><a href="#">...</a></li>
-          <li class="b-pagination__item"><a href="#">666</a></li>
-        </ul>
+        <dir-pagination-controls></dir-pagination-controls>
       </div>
       <footer class="b-footer">
         <div class="container">
           <ul class="b-footer__menu b-menu b-menu_dark">
-            <li class="b-menu__item _active"><a href="#">Биография</a></li>
-            <li class="b-menu__item"><a href="#">Фото</a></li>
-            <li class="b-menu__item"><a href="#">Видео</a></li>
-            <li class="b-menu__item"><a href="#">Мои проекты</a></li>
-            <li class="b-menu__item"><a href="#">Контакты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/&quot;}" class="b-menu__item"><a href="./">Биография</a></li>
+            <li ng-class="{_active: currentPage == &quot;/gallery.html&quot;}" class="b-menu__item"><a href="gallery.html">Фото</a></li>
+            <li ng-class="{_active: currentPage == &quot;/videos.html&quot;}" class="b-menu__item"><a href="videos.html">Видео</a></li>
+            <li ng-class="{_active: currentPage == &quot;/projects.html&quot;}" class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/contacts.html&quot;}" class="b-menu__item"><a href="contacts.html">Контакты</a></li>
           </ul>
           <div class="b-footer__social b-social"><a href="#" class="b-social__icon _blue _vkontakte"></a><a href="#" class="b-social__icon _blue _facebook"></a><a href="#" class="b-social__icon _blue _twitter"></a><a href="#" class="b-social__icon _blue _instagram"></a></div>
           <div class="b-footer__copy">© 2014, Теймураз тания</div>

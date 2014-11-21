@@ -12,18 +12,18 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
-  <body ng-app="app">
+  <body ng-app="app" ng-controller="MainCtrl">
     <!-- === Header ============================================================= -->
     <header class="b-header">
       <div class="container">
         <div class="b-header__top">
           <div class="b-header__logo"><a href="#"><img src="img/b-header__logo.png"/></a></div>
           <ul class="b-header__menu b-menu b-menu_light">
-            <li class="b-menu__item _active"><a href="./">Биография</a></li>
-            <li class="b-menu__item"><a href="gallery.html">Фото</a></li>
-            <li class="b-menu__item"><a href="videos.html">Видео</a></li>
-            <li class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
-            <li class="b-menu__item"><a href="contacts.html">Контакты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/&quot;}" class="b-menu__item"><a href="./">Биография</a></li>
+            <li ng-class="{_active: currentPage == &quot;/gallery.html&quot;}" class="b-menu__item"><a href="gallery.html">Фото</a></li>
+            <li ng-class="{_active: currentPage == &quot;/videos.html&quot;}" class="b-menu__item"><a href="videos.html">Видео</a></li>
+            <li ng-class="{_active: currentPage == &quot;/projects.html&quot;}" class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/contacts.html&quot;}" class="b-menu__item"><a href="contacts.html">Контакты</a></li>
           </ul>
         </div>
         <div class="b-header__person"></div>
@@ -48,65 +48,50 @@
       <div class="b-welcome">
         <div class="container">
           <div class="b-welcome__left">
-            <div class="b-welcome-gallery">
+            <div ng-controller="PhotoListCtrl" class="b-welcome-gallery">
               <h2 class="heading_section b-welcome-gallery__heading">Фото </h2>
-              <ul class="b-welcome-gallery__slider">
-                <li class="b-welcome-gallery__item">
-                  <div data-img-preview="http://placehold.it/140x140" data-img="http://placehold.it/400x400" class="b-preview"></div>
+              <ul bx-slider="slideWidth: 140, slideMargin: 20, maxSlides: 3, pager: false, nextText: &quot;&quot;, prevText: &quot;&quot;" class="b-welcome-gallery__slider">
+                <li ng-repeat="photo in photos | limitTo:6" repeat-finished="repeat-finished" class="b-last-videos__item">
+                  <div preview="preview" photo="photo" class="b-preview"></div>
                 </li>
-                <li class="b-welcome-gallery__item">
-                  <div data-img-preview="http://placehold.it/140x140" data-img="http://placehold.it/400x400" class="b-preview"></div>
-                </li>
-                <li class="b-welcome-gallery__item">
-                  <div data-img-preview="http://placehold.it/140x140" data-img="http://placehold.it/400x400" class="b-preview"></div>
-                </li>
-              </ul><a href="#" class="link link_more b-welcome-gallery__more">Все фото</a>
+              </ul><a href="gallery.html" class="link link_more b-welcome-gallery__more">Все фото</a>
             </div>
             <div class="b-welcome-sub">
               <h2 class="b-welcome-sub__heading heading_section">Всегда в курсе </h2>
               <p class="b-welcome-sub__text text">Михаил Галустян родился в городе Сочи 25 октября 1979 года, правда, при рождении родители дали ему имя Ншан… </p><a href="#" class="link link_more b-welcome-sub__more">Все фото</a>
             </div>
           </div>
-          <div class="b-welcome-feed b-welcome__right">
+          <div ng-controller="FeedCtrl" class="b-welcome-feed b-welcome__right">
             <h2 class="heading_section b-welcome-feed__heading"><strong>Живая</strong> лента </h2>
-            <div class="b-welcome-feed__item">
-              <div class="b-welcome-feed__item__date">4 Июня 2014, 18:18</div>
+            <div ng-repeat="post in posts" class="b-welcome-feed__item">
+              <div class="b-welcome-feed__item__date">{{post.date}}</div><img ng-src="{{post.image}}" ng-if="post.image"/>
               <p class="b-welcome-feed__item__text text">
                  
-                Ой, простите! С этими съёмками не заметил, что вас уже больше 2′000′000 Спасибо, что читаете мои буквы;))) Надо как-нибудь собраться вместе!<a href="http://i.instagram.com/p/o5Zl_dKzpE/" class="link link_default">http://i.instagram.com/p/o5Zl_dKzpE/</a>
-              </p>
-            </div>
-            <div class="b-welcome-feed__item">
-              <div class="b-welcome-feed__item__date">4 Июня 2014, 18:18</div>
-              <p class="b-welcome-feed__item__text text">
-                 
-                Ой, простите! С этими съёмками не заметил, что вас уже больше 2′000′000 Спасибо, что читаете мои буквы;))) Надо как-нибудь собраться вместе!<a href="http://i.instagram.com/p/o5Zl_dKzpE/" class="link link_default">http://i.instagram.com/p/o5Zl_dKzpE/</a>
+                {{post.desc}}<a href="http://i.instagram.com/p/o5Zl_dKzpE/" class="link link_default">http://i.instagram.com/p/o5Zl_dKzpE/</a>
               </p>
             </div><a href="#" class="b-welcome-feed__more link link_more">Читать ленту</a>
           </div>
         </div>
       </div>
       <!-- ~~~ Last videos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //-->
-      <div class="b-last-videos">
+      <div ng-controller="VideoListCtrl" class="b-last-videos">
         <div class="container">
-          <h2 class="heading_section b-last-videos__heading"><strong>Новые</strong> видео<a href="#" class="b-last-videos__more link link_more">Все видео</a></h2>
-          <ul class="b-last-videos__slider">
-            <li class="b-last-videos__item"><img src="http://placehold.it/300x200"/></li>
-            <li class="b-last-videos__item"><img src="http://placehold.it/300x200"/></li>
-            <li class="b-last-videos__item"><img src="http://placehold.it/300x200"/></li>
-            <li class="b-last-videos__item"><img src="http://placehold.it/300x200"/></li>
-            <li class="b-last-videos__item"><img src="http://placehold.it/300x200"/></li>
+          <h2 class="heading_section b-last-videos__heading"><strong>Новые</strong> видео<a href="videos.html" class="b-last-videos__more link link_more">Все видео</a></h2>
+          <ul bx-slider="slideWidth: 300, slideMargin: 20, maxSlides: 3, pager: false, nextText: &quot;&quot;, prevText: &quot;&quot;" class="b-last-videos__slider">
+            <li ng-repeat="video in videos | limitTo:6" repeat-finished="repeat-finished" class="b-last-videos__item">
+              <iframe width="300" height="200" ng-src="{{trustSrc(video.url)}}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </li>
           </ul>
         </div>
       </div>
       <footer class="b-footer">
         <div class="container">
           <ul class="b-footer__menu b-menu b-menu_dark">
-            <li class="b-menu__item _active"><a href="#">Биография</a></li>
-            <li class="b-menu__item"><a href="#">Фото</a></li>
-            <li class="b-menu__item"><a href="#">Видео</a></li>
-            <li class="b-menu__item"><a href="#">Мои проекты</a></li>
-            <li class="b-menu__item"><a href="#">Контакты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/&quot;}" class="b-menu__item"><a href="./">Биография</a></li>
+            <li ng-class="{_active: currentPage == &quot;/gallery.html&quot;}" class="b-menu__item"><a href="gallery.html">Фото</a></li>
+            <li ng-class="{_active: currentPage == &quot;/videos.html&quot;}" class="b-menu__item"><a href="videos.html">Видео</a></li>
+            <li ng-class="{_active: currentPage == &quot;/projects.html&quot;}" class="b-menu__item"><a href="projects.html">Мои проекты</a></li>
+            <li ng-class="{_active: currentPage == &quot;/contacts.html&quot;}" class="b-menu__item"><a href="contacts.html">Контакты</a></li>
           </ul>
           <div class="b-footer__social b-social"><a href="#" class="b-social__icon _blue _vkontakte"></a><a href="#" class="b-social__icon _blue _facebook"></a><a href="#" class="b-social__icon _blue _twitter"></a><a href="#" class="b-social__icon _blue _instagram"></a></div>
           <div class="b-footer__copy">© 2014, Теймураз тания</div>

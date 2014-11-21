@@ -482,6 +482,7 @@ a {
   border-radius: 8px;
 }
 .b-photo-list__item__date {
+  word-break: break-all;
   color: #959595;
 }
 .b-preview {
@@ -531,6 +532,14 @@ a {
 }
 .b-project-list {
   margin: 0 -20px;
+}
+.b-project-list:before,
+.b-project-list:after {
+  content: " ";
+  display: table;
+}
+.b-project-list:after {
+  clear: both;
 }
 .b-project-list__item {
   float: left;
@@ -612,7 +621,7 @@ a {
   font-size: 12px;
 }
 .b-welcome-feed__heading {
-  margin: 0 0 35px;
+  margin: 0 0 25px;
 }
 .b-welcome-feed__more {
   margin: 40px 0 0;

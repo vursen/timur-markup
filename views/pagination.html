@@ -1,0 +1,4 @@
+
+<ul ng-if="1 &lt; pages.length" class="b-pagination">
+  <li ng-repeat="pageNumber in pages track by $index" ng-class="{ _active : pagination.current == pageNumber, _disabled : pageNumber == &quot;...&quot; }" class="b-pagination__item"><a href="" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a></li>
+</ul>
