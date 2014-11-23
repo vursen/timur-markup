@@ -8,7 +8,8 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/main.css"/><!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/><!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script>
     <script type="text/javascript" src="http://ie.cntrlmrktng.ru/1.0/help.js" charset="UTF-8" async="async"></script><![endif]-->
   </head>
@@ -38,7 +39,7 @@
           <div class="b-header__about__social b-social"><a href="#" class="b-social__icon _gray _vkontakte"></a><a href="#" class="b-social__icon _gray _facebook"></a><a href="#" class="b-social__icon _gray _twitter"></a><a href="#" class="b-social__icon _gray _instagram"></a></div>
         </div>
         <div class="b-header__video">
-          <div class="b-header__video__wrapper"></div><a href="#" class="b-header__video__more link link_more">Видео</a>
+          <div class="b-header__video__wrapper"><img src="http://placehold.it/350x184.png"/></div><a href="#" class="b-header__video__more link link_more">Видео</a>
         </div>
       </div>
     </header>
@@ -63,12 +64,14 @@
           </div>
           <div ng-controller="FeedCtrl" class="b-welcome-feed b-welcome__right">
             <h2 class="heading_section b-welcome-feed__heading"><strong>Живая</strong> лента </h2>
-            <div ng-repeat="post in posts" class="b-welcome-feed__item">
-              <div class="b-welcome-feed__item__date">{{post.date}}</div><img ng-src="{{post.image}}" ng-if="post.image"/>
-              <p class="b-welcome-feed__item__text text">
-                 
-                {{post.desc}}<a href="http://i.instagram.com/p/o5Zl_dKzpE/" class="link link_default">http://i.instagram.com/p/o5Zl_dKzpE/</a>
-              </p>
+            <div ng-repeat="post in posts | limitTo:3" class="b-welcome-feed__item"><img ng-src="{{post.image}}" ng-if="post.image" class="b-welcome-feed__item__image"/>
+              <div class="b-welcome-feed__item__content">
+                <div class="b-welcome-feed__item__date">{{post.date | date:'dd.MM.yyyy HH:mm'}}</div>
+                <p class="b-welcome-feed__item__text text">
+                   
+                  {{post.desc | cut:true:130}}<a ng-href="{{post.link}}" class="link link_default">{{post.link}}</a>
+                </p>
+              </div>
             </div><a href="#" class="b-welcome-feed__more link link_more">Читать ленту</a>
           </div>
         </div>
@@ -77,11 +80,7 @@
       <div ng-controller="VideoListCtrl" class="b-last-videos">
         <div class="container">
           <h2 class="heading_section b-last-videos__heading"><strong>Новые</strong> видео<a href="videos.html" class="b-last-videos__more link link_more">Все видео</a></h2>
-          <ul bx-slider="slideWidth: 300, slideMargin: 20, maxSlides: 3, pager: false, nextText: &quot;&quot;, prevText: &quot;&quot;" class="b-last-videos__slider">
-            <li ng-repeat="video in videos | limitTo:6" repeat-finished="repeat-finished" class="b-last-videos__item">
-              <iframe width="300" height="200" ng-src="{{trustSrc(video.url)}}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-            </li>
-          </ul>
+          <video-slider videos="videos" limit="6"></video-slider>
         </div>
       </div>
       <footer class="b-footer">
@@ -99,6 +98,13 @@
       </footer>
     </div>
     <!-- === Scripts ============================================================ -->
+    <script src="//vk.com/js/api/openapi.js"></script>
+    <script>
+      VK.init({
+        apiId: 4646122
+      });
+      
+    </script>
     <script src="js/vendor.min.js"></script>
     <script src="js/app.min.js"></script>
     <script src="js/main.js"></script>
